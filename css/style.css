@@ -753,7 +753,7 @@ h1 span{
 .grid p.description {
   font-size: 12px;
   width:285px;
-  margin-top:15px;
+  margin-top:60px;
   text-align:center;
   line-height:20px;
   color: #F3F3F3;
@@ -927,7 +927,7 @@ h1 span{
   width: 23px;
   height: auto;
   left: 132px;
-  margin-top: 18px;
+  margin-top: 19px;
 }
 strong{
   font-weight:700;
