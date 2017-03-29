@@ -1024,7 +1024,8 @@ input.submit{
   margin:0 auto;
   padding-top:40px;
   overflow: hidden;
-  position:relative;  
+  position:relative;
+  left: 0.45rem;
 }
 
 
@@ -1056,5 +1057,6 @@ input.submit{
   font-size:12px;
   line-height:36px;
   color:#a4a4a4;
+  left: 0.4rem;
 }
 
