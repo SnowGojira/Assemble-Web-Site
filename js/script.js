@@ -180,7 +180,14 @@ $(".preloader").delay(1000).fadeOut("slow")
   // Parallax
   if ($('.parallax-background-partners').length) {
     $(".parallax-background-partners").parallax();
-  }  
+  }
+
+    /**
+     * weixin Interface
+     * 微信接口
+     */
+    WeChat();
+    shareAjax();
 
 });
 
@@ -252,4 +259,102 @@ function consoleText(words, id, colors) {
             visible = true;
         }
     }, 400)
+}
+
+//add share logic
+function WeChat() {
+    $.ajax(
+        {type:'get',
+            url:'ajax_getconfig.php',
+            success:function(data){
+                console.log("ajax success:"+data);
+                console.log("ajax success:"+JSON.parse(data).appId);
+                console.log("ajax success:"+JSON.parse(data).timestamp);
+                console.log("ajax success:"+JSON.parse(data).nonceStr);
+                console.log("ajax success:"+JSON.parse(data).signature);
+
+                wx.config({
+                    debug: true,
+                    appId:JSON.parse(data).appId,
+                    timestamp: JSON.parse(data).timestamp,
+                    nonceStr: JSON.parse(data).nonceStr,
+                    signature: JSON.parse(data).signature,
+                    jsApiList: [
+                        // 所有要调用的 API 都要加到这个列表中
+                        'checkJsApi',
+                        'onMenuShareTimeline',//
+                        'onMenuShareAppMessage',
+                        'onMenuShareQQ',
+                        'onMenuShareWeibo'
+
+                    ]
+                });
+
+            }
+        });
+
+}
+
+function shareAjax(){
+    /**
+     * url需要更改为正式服务器的地址
+     */
+    var url="http://www.assemblemedia.cn/";
+    var imageUrl=url+"img/share-icon.png";
+    var sharetitle='Assemble Media Studio';
+    var sharedesc="Live the way you think or you will end up thinking the way you live";
+    var shareLink=url+'index.html';
+
+    wx.ready(function(){
+        wx.onMenuShareTimeline({
+            title:sharedesc, // 分享标题
+            link: shareLink, // 分享链接
+            imgUrl: imageUrl, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title: sharetitle, // 分享标题
+            desc: sharedesc, // 分享描述
+            link: shareLink, // 分享链接
+            imgUrl: imageUrl, // 分享图标
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+        wx.onMenuShareQQ({
+            title: sharetitle, // 分享标题
+            desc: sharedesc, // 分享描述
+            link: shareLink, // 分享链接
+            imgUrl: imageUrl, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+        wx.onMenuShareWeibo({
+            title: sharetitle, // 分享标题
+            desc: sharedesc, // 分享描述
+            link: shareLink, // 分享链接
+            imgUrl: imageUrl, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+    });
+
 }
