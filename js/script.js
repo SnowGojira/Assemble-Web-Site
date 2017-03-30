@@ -187,6 +187,7 @@ $(".preloader").delay(1000).fadeOut("slow")
      * 微信接口
      */
     WeChat();
+
     shareAjax();
 
 });
