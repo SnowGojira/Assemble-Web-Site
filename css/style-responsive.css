@@ -134,7 +134,7 @@ textarea{
 /* iPad (portrait) */
 @media (min-width: 580px) and (max-width: 767px) {
  #preload-logo{
-   width: 15vw;
+   width: 19vw;
  }
 
 .menu{
