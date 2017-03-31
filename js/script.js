@@ -186,9 +186,9 @@ $(".preloader").delay(1000).fadeOut("slow")
      * weixin Interface
      * 微信接口
      */
+    shareAjax();
     WeChat();
 
-    shareAjax();
 
 });
 
@@ -275,7 +275,7 @@ function WeChat() {
                 console.log("ajax success:"+JSON.parse(data).signature);
 
                 wx.config({
-                    debug: true,
+                    debug: false,
                     appId:JSON.parse(data).appId,
                     timestamp: JSON.parse(data).timestamp,
                     nonceStr: JSON.parse(data).nonceStr,
@@ -295,12 +295,11 @@ function WeChat() {
         });
 
 }
-
 function shareAjax(){
     /**
      * url需要更改为正式服务器的地址
      */
-    var url="http://www.assemblemedia.cn/";
+    var url="http://weixin.assemblemedia.cn/";
     var imageUrl=url+"img/share-icon.png";
     var sharetitle='Assemble Media Studio';
     var sharedesc="Live the way you think or you will end up thinking the way you live";

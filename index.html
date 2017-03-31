@@ -29,7 +29,7 @@
   <script src="js/jquery.sticky.js"></script> <!-- jQuery Stick Menu -->
   <script src="js/masonry.pkgd.min.js"></script> <!-- All script -->
   <script src="js/imagesloaded.pkgd.min.js"></script> <!-- All script -->
-  <script src="js/jweixin-1.0.0.js"></script> <!-- All script -->
+
 
 </head>
 
@@ -397,7 +397,41 @@
      });
    </script>
 	<script src="js/jquery.parallax.js"></script> <!-- jQuery Parallax -->	
-	<script src="js/script.js"></script> <!-- All script -->	
+	<script src="js/script.js"></script> <!-- All script -->
+    <script src="js/jweixin-1.0.0.js"></script> <!-- All script -->
+<!--<script>
+  window.onload=function() {
+    new Loader("<?=$C->STATIC_URL;?>");
+  };
+  //微信分享
+  wx.config({
+    debug: false,
+    appId: '<?php echo $C->signPackage["appId"];?>',
+    timestamp: '<?php echo $C->signPackage["timestamp"];?>',
+    nonceStr: '<?php echo $C->signPackage["nonceStr"];?>',
+    signature: '<?php echo $C->signPackage["signature"];?>',
+    jsApiList: [
+      'onMenuShareTimeline',
+      'onMenuShareAppMessage'
+    ]
+  });
+  wx.ready(function (){
+    var shareData = {
+      title: '用S6 get这几项技能，成为这个时代的"弄潮儿"',            //朋友圈文案（朋友圈没有标题）
+      desc: '',
+      link: '',
+      imgUrl: '<?=$C->STATIC_URL;?>images/s1.png'
+    };
+    var shareData1 = {
+      title: '用S6 get这几项技能，成为这个时代的"弄潮儿"',             //发送给朋友的标题
+      desc: '陈星如邀你用潮人的眼睛，享受这个世界！',                  //文案
+      link: '',
+      imgUrl: '<?=$C->STATIC_URL;?>images/s1.png'
+    };
+    wx.onMenuShareAppMessage(shareData1);
+    wx.onMenuShareTimeline(shareData);
+  });
+</script>-->
 
 
 </body>
