@@ -520,7 +520,7 @@ h1 span{
   position:relative;
   margin:0 auto;
   border:2px solid #f0f0f0;
-  background: url(../img/icons/responsive.png) white no-repeat center center;
+  /*background: url(../img/icons/responsive.png) white no-repeat center center;*/
   -moz-border-radius:100px;
   -webkit-border-radius:100px;
   border-radius: 100px;
@@ -553,7 +553,7 @@ h1 span{
   position:relative;
   margin:0 auto;
   border:2px solid #f0f0f0;
-  background: url(../img/icons/minimalist.png) white no-repeat center center;
+  /*background: url(../img/icons/minimalist.png) white no-repeat center center;*/
   -moz-border-radius:100px;
   -webkit-border-radius:100px;
   border-radius: 100px;
@@ -586,7 +586,7 @@ h1 span{
   position:relative;
   margin:0 auto;
   border:2px solid #f0f0f0;
-  background: url(../img/icons/free.png) white no-repeat center center;
+  /*background: url(../img/icons/free.png) white no-repeat center center;*/
   -moz-border-radius:100px;
   -webkit-border-radius:100px;
   border-radius: 100px;
