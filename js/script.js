@@ -5,7 +5,7 @@ var maxHeight = document.documentElement.clientHeight;
 $(document).ready(function() {
 
 
-        console.log("设备宽："+maxWidth+"设备高："+maxHeight);
+        // console.log("设备宽："+maxWidth+"设备高："+maxHeight);
         $('#grid-6').click(function(){
             window.location.href="https://mp.weixin.qq.com/s?__biz=MzI1NDYzMTM2NQ==&mid=2247483836&idx=1&sn=ea6adf3a14beb09af8f6a7e0c746841f&chksm=e9c30d16deb48400dcf19291e94a9666d923bf9537337dc8f1a3316762a8f2ef2cdbf6d23984&mpshare=1&scene=1&srcid=0328dL3vgEAr7k7ZADrAaHri#rd";
         });
@@ -189,6 +189,27 @@ $(".preloader").delay(1000).fadeOut("slow")
     shareAjax();
     WeChat();
 
+    /**
+     * 创建自动播放背景乐入口
+     */
+    var oAudio= document.getElementById('bg-music');
+    oAudio.src="img/bg-music.wav";
+    oAudio.play();
+    oAudio.loop=true;
+
+    $(window).scroll(function () {
+        var a = document.getElementById("home").offsetTop;
+        if (a >= $(window).scrollTop() && a < ($(window).scrollTop()+$(window).height())) {
+            oAudio.play();
+            oAudio.loop=true;
+            // console.log("home在可视范围，音乐播放;");
+        }else {
+            oAudio.pause();
+            // console.log("home不在可视范围,音乐停止;");
+        }
+    });
+
+
 
 });
 
@@ -268,11 +289,11 @@ function WeChat() {
         {type:'get',
             url:'ajax_getconfig.php',
             success:function(data){
-                console.log("ajax success:"+data);
+                /*console.log("ajax success:"+data);
                 console.log("ajax success:"+JSON.parse(data).appId);
                 console.log("ajax success:"+JSON.parse(data).timestamp);
                 console.log("ajax success:"+JSON.parse(data).nonceStr);
-                console.log("ajax success:"+JSON.parse(data).signature);
+                console.log("ajax success:"+JSON.parse(data).signature);*/
 
                 wx.config({
                     debug: false,
