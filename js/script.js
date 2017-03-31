@@ -192,19 +192,15 @@ $(".preloader").delay(1000).fadeOut("slow")
     /**
      * 创建自动播放背景乐入口
      */
-    var oAudio= document.getElementById('bg-music');
-    oAudio.src="img/bg-music.wav";
-    oAudio.play();
-    oAudio.loop=true;
+    audioPlay('bg-music');
 
     $(window).scroll(function () {
         var a = document.getElementById("home").offsetTop;
         if (a >= $(window).scrollTop() && a < ($(window).scrollTop()+$(window).height())) {
-            oAudio.play();
-            oAudio.loop=true;
+            audioPlay('bg-music');
             // console.log("home在可视范围，音乐播放;");
         }else {
-            oAudio.pause();
+            audioPause('bg-music');
             // console.log("home不在可视范围,音乐停止;");
         }
     });
@@ -213,7 +209,29 @@ $(".preloader").delay(1000).fadeOut("slow")
 
 });
 
-  //add glitch effect
+//自动播放
+function audioPlay(id){
+    var audio = document.getElementById(id),
+        play = function(){
+            audio.play();
+            document.removeEventListener("touchstart",play, false);
+        };
+    audio.play();
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        play();
+    }, false);
+    document.addEventListener('YixinJSBridgeReady', function() {
+        play();
+    }, false);
+    document.addEventListener("touchstart",play, false);
+}
+
+function audioPause(id){
+    var audio = document.getElementById(id);
+        audio.pause();
+}
+
+//add glitch effect
   $( function(){
           $("#glitch-logo").mgGlitch({
               destroy : false, // set 'true' to stop the plugin
