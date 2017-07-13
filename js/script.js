@@ -10,7 +10,7 @@ $(document).ready(function() {
             window.location.href="https://mp.weixin.qq.com/s?__biz=MzI1NDYzMTM2NQ==&mid=2247483836&idx=1&sn=ea6adf3a14beb09af8f6a7e0c746841f&chksm=e9c30d16deb48400dcf19291e94a9666d923bf9537337dc8f1a3316762a8f2ef2cdbf6d23984&mpshare=1&scene=1&srcid=0328dL3vgEAr7k7ZADrAaHri#rd";
         });
         if (maxHeight>maxWidth) {
-            $('#glitch-img').attr('src', 'img/gif1.jpg');
+            $('#glitch-img').attr('src', 'img/gif1.png');
             $('#glitch-img').css('width',maxWidth);
             $('#glitch-img').css('height',maxHeight);
 
@@ -66,10 +66,24 @@ $(document).ready(function() {
                 $('#grid8').css("opacity","0");
             });
 
-            $('#grid7').hover(function () {
-                $('#grid7').css("opacity","1");
+            //new add items
+
+            $('#grid9').hover(function () {
+                $('#grid9').css("opacity","1");
             },function () {
-                $('#grid7').css("opacity","0");
+                $('#grid9').css("opacity","0");
+            });
+
+            $('#grid10').hover(function () {
+                $('#grid10').css("opacity","1");
+            },function () {
+                $('#grid10').css("opacity","0");
+            });
+
+            $('#grid11').hover(function () {
+                $('#grid11').css("opacity","1");
+            },function () {
+                $('#grid11').css("opacity","0");
             });
 
 
@@ -314,7 +328,7 @@ function WeChat() {
                 console.log("ajax success:"+JSON.parse(data).signature);
 
                 wx.config({
-                    debug: true,
+                    debug: false,
                     appId:JSON.parse(data).appId,
                     timestamp: JSON.parse(data).timestamp,
                     nonceStr: JSON.parse(data).nonceStr,
